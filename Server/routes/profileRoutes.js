@@ -5,33 +5,33 @@ from "../middleware/authMiddleware.js";
 
 import {
 
- generateNotes,
+ getProfile,
 
- getNotes
+ updateProfile
 
 }
-from "../controllers/notesController.js";
+from "../controllers/profileController.js";
 
 const router =
 express.Router();
 
-router.post(
+router.get(
 
- "/generate/:id",
+ "/profile",
 
  authMiddleware,
 
- generateNotes
+ getProfile
 
 );
 
-router.get(
+router.put(
 
- "/:id",
+ "/profile",
 
  authMiddleware,
 
- getNotes
+ updateProfile
 
 );
 
