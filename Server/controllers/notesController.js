@@ -10,6 +10,12 @@ import {
 }
 from "../services/geminiService.js";
 
+import Notes
+from "../models/Notes.js";
+
+import Transcript
+from "../models/Transcript.js";
+
 export const generateNotes =
 async(req,res)=>{
 
@@ -69,6 +75,28 @@ async(req,res)=>{
    summary
 
   });
+
+  const transcriptDoc =
+await Transcript.create({
+
+ lecture:lecture._id,
+
+ content:transcript
+
+});
+
+await Notes.create({
+
+ lecture:lecture._id,
+
+ transcript:
+ transcriptDoc._id,
+
+ summary
+
+});
+
+
 
  }
  catch(error){

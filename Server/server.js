@@ -23,6 +23,9 @@ from "./routes/historyRoutes.js";
 import pdfRoutes
 from "./routes/pdfRoutes.js";
 
+import analyticsRoutes
+from "./routes/analyticsRoutes.js";
+
 dotenv.config();
 
 connectDB();
@@ -85,6 +88,12 @@ app.use(
  "/api/pdf",
  pdfRoutes
 );
+
+app.use(
+ "/api/analytics",
+ analyticsRoutes
+);
+
 const PORT =
 process.env.PORT || 5000;
 
